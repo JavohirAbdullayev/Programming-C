@@ -11,7 +11,8 @@ WHERE p1.SafetyStockLevel = (
 SELECT MAX(SafetyStockLevel) FROM Production.Product AS p2)
 
 
---3.	Ïîêàçàòü òîâàðû, äëÿ êîòîðûõ ñóùåñòâóåò òîëüêî îäèí ñòèëü â îäíîì öâåòå (ñòèëü è öâåò îïðåäåëåí) (Òàáëèöà Production.Product). Ïîêàçàòü ïîëÿ [Name], Style è Color.
+/*ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹, Ð´Ð»Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð´Ð¸Ð½ ÑÑ‚Ð¸Ð»ÑŒ Ð² Ð¾Ð´Ð½Ð¾Ð¼ Ñ†Ð²ÐµÑ‚Ðµ (ÑÑ‚Ð¸Ð»ÑŒ Ð¸ Ñ†Ð²ÐµÑ‚ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½) (Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Production.Product). ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ñ [Name], Style Ð¸ Color.
+*/
 
 SELECT Color, COUNT(DISTINCT Style) CountStle FROM Production.Product
 WHERE Color IS NOT NULL
@@ -24,7 +25,7 @@ AND (SELECT COUNT(DISTINCT p2.Style) AS CountStle FROM Production.Product AS p2
 WHERE p1.Style = p2.Style) = 1
 
 
---4.	Ïîêàçàòü òîâàðû, öåíà êîòîðûõ ðàâíà ìèíèìàëüíîé (áîëüøå íóëÿ) öåíå òîâàðà òîãî æå ðàçìåðà (ðàçìåð îïðåäåëåí) (Òàáëèöà Production.Product). Ïîêàçàòü ïîëÿ [Name], ListPrice è Size.
+/*ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹, Ñ†ÐµÐ½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… Ñ€Ð°Ð²Ð½Ð° Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð¹ (Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½ÑƒÐ»Ñ) Ñ†ÐµÐ½Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð° Ñ‚Ð¾Ð³Ð¾ Ð¶Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° (Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½) (Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Production.Product). ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ñ [Name], ListPrice Ð¸ Size.*/
 
 --SELECT MIN(ListPrice) FROM Production.Product AS p2
 --WHERE p2.ListPrice > 0 AND p2.Size IS NOT NULL
@@ -35,7 +36,7 @@ SELECT MIN(ListPrice) FROM Production.Product AS p2
 WHERE p2.ListPrice > 0 AND p2.Size IS NOT NULL)
 
 
--- 5. Ïîêàçàòü òîâàðû, öåíà êîòîðûõ áîëüøå ñðåäíåé öåíû â ëþáîé ëèíåéêå ïðîäóêòîâ (ëèíåéêà ïðîäóêòîâ îïðåäåëåíà) (Òàáëèöà Production.Product). Ïîêàçàòü ïîëÿ [Name], ListPrice è ProductLine.
+/*ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹, Ñ†ÐµÐ½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… Ð±Ð¾Ð»ÑŒÑˆÐµ ÑÑ€ÐµÐ´Ð½ÐµÐ¹ Ñ†ÐµÐ½Ñ‹ Ð² Ð»ÑŽÐ±Ð¾Ð¹ Ð»Ð¸Ð½ÐµÐ¹ÐºÐµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð² (Ð»Ð¸Ð½ÐµÐ¹ÐºÐ° Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¾Ð² Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð°) (Ð¢Ð°Ð±Ð»Ð¸Ñ†Ð° Production.Product). ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ñ [Name], ListPrice Ð¸ ProductLine.*/
 SELECT [Name], ListPrice, ProductLine FROM Production.Product
 WHERE ListPrice > ALL (SELECT AVG(ListPrice) FROM Production.Product
 GROUP BY ProductLine)
