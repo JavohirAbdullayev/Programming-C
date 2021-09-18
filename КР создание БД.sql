@@ -19,7 +19,7 @@ CONSTRAINT [PK_class] PRIMARY KEY CLUSTERED
 [id] ASC))
 
 
-/* 3. Studnet*/
+/* 3. Student*/
 
 CREATE TABLE [dbo].[student](
 [id] [int] IDENTITY(1,1) NOT NULL,
@@ -70,9 +70,8 @@ VALUES
 
 /* Удаление записей*/
 
-UPDATE [dbo].[Patients]
-SET[first name]='Tom
-èçìåíåíèé'
+UPDATE [dbo].[headteacher]
+SET[first name]='Алина'
 where[id] = 12
 
  
