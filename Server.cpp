@@ -15,7 +15,7 @@ namespace Server
 	{
 		static Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 		static byte[] buffer = new byte[1024];
-		static MemoryStream stream = new MemoryStream(buffer); /*поток данных хранящихся в памяти*/
+		static MemoryStream stream = new MemoryStream(buffer); /*РїРѕС‚РѕРє РґР°РЅРЅС‹С… С…СЂР°РЅСЏС‰РёС…СЃСЏ РІ РїР°РјСЏС‚Рё*/
 		static BinaryReader reader = new BinaryReader(stream);
 
 		static void Main(string[] args)
@@ -25,7 +25,7 @@ namespace Server
 			socket.Listen(5);
 
 			Socket client = socket.Accept();
-			client.Recieve(buffer);//|login, password  /*в трех случаях показаны расположения курсора после считывания*/
+			client.Recieve(buffer);//|login, password  /*РІ С‚СЂРµС… СЃР»СѓС‡Р°СЏС… РїРѕРєР°Р·Р°РЅС‹ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РєСѓСЂСЃРѕСЂР° РїРѕСЃР»Рµ СЃС‡РёС‚С‹РІР°РЅРёСЏ*/
 
 			string login = reader.ReadString();//login,| password 
 			string password = reader.ReadString(); //login, password |
