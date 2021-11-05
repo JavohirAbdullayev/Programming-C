@@ -15,8 +15,8 @@ namespace Client
 	{
 		static Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 		static byte[] buffer = new byte[1024];
-		static MemoryStream stream = new MemoryStream(buffer); /*поток данных хранящихся в памяти*/
-		static BinaryWriter writer = new BinaryWriter(stream); /*для записи данных в потом*/
+		static MemoryStream stream = new MemoryStream(buffer); /*РїРѕС‚РѕРє РґР°РЅРЅС‹С…, С…СЂР°РЅСЏС‰РёС…СЃСЏ РІ РїР°РјСЏС‚Рё*/
+		static BinaryWriter writer = new BinaryWriter(stream); /*РґР»СЏ Р·Р°РїРёСЃРё РґР°РЅРЅС‹С… РІ РїРѕС‚РѕРє*/
 
 		static void Main(string[] args)
 		{
